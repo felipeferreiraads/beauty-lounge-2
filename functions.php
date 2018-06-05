@@ -3,7 +3,7 @@ add_theme_support( 'post-thumbnails' );
 add_theme_support( 'title-tag' );
 
 add_filter('default_hidden_meta_boxes', 'show_hidden_meta_boxes', 10, 2);
- 
+
 function show_hidden_meta_boxes($hidden, $screen) {
     if ( 'post' == $screen->base ) {
         foreach($hidden as $key=>$value) {
@@ -13,7 +13,7 @@ function show_hidden_meta_boxes($hidden, $screen) {
             }
         }
     }
- 
+
     return $hidden;
 }
 
@@ -47,7 +47,7 @@ function post_treatments() {
     'menu_position' => null,
     'menu_icon' => 'dashicons-products',
     'taxonomies' => ['category'],
-    'supports' => ['title', 'thumbnail', 'excerpt', 'category']
+    'supports' => ['title', 'thumbnail', 'excerpt', 'category', 'editor']
   ];
 
   register_post_type('tratamentos', $args);
