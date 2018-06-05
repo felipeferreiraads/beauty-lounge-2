@@ -1,13 +1,21 @@
-<?php get_header();?>
+<?php
+get_header();
+$banners_desktop = get_field('banners_desktop', 'options');
+$banners_mobile = get_field('banners_mobile', 'options');
+$treatments = new WP_Query(['post_type' => 'tratamentos', 'category_name' => 'destaques']);
+$posts = new WP_Query(['post_type' => 'post', 'posts_per_page' => 3]);
+?>
 
     <section class="banner">
         <div class="carousel">
-            <img src="<?php echo get_template_directory_uri();?>/assets/img/banner.jpg" alt="Banner">
-            <img src="<?php echo get_template_directory_uri();?>/assets/img/banner.jpg" alt="Banner">
+        <?php foreach($banners_desktop as $banner):?>
+            <img src="<?php echo $banner['url']?>" alt="<?php echo $banner['caption'];?>">
+        <?php endforeach;?>
         </div>
         <div class="carousel-mobile">
-            <img src="<?php echo get_template_directory_uri();?>/assets/img/banner-mobile.jpg" alt="Banner">
-            <img src="<?php echo get_template_directory_uri();?>/assets/img/banner-mobile.jpg" alt="Banner">
+        <?php foreach($banners_mobile as $banner):?>
+            <img src="<?php echo $banner['url']?>" alt="<?php echo $banner['caption'];?>">
+        <?php endforeach;?>
         </div>
     </section>
 
@@ -17,47 +25,21 @@
                 <h2 class="ui-title">Conheça nossos tratamentos</h2>
                 <p class="subtitle">Ea do cillum cillum occaecat est dolor aute ea amet occaecat magna cupidatat aute ullamco.</p>
                 <div class="carousel">
+                <?php while($treatments->have_posts()): $treatments->the_post();?>
                     <div class="treatment">
                         <figure>
-                            <img src="<?php echo get_template_directory_uri();?>/assets/img/botox.jpg" alt="Botox">
+                            <img src="<?php echo get_the_post_thumbnail_url();?>" alt="<?php echo get_the_title();?>">
                         </figure>
                         <div class="info">
-                            <h3>Botox</h3>
-                            <p>Consectetur qui proident elit ea minim cillum minim anim aliquip Lorem.</p>
+                            <?php the_title('<h3>','</h3>');?>
+                            <?php the_excerpt();?>
                         </div>
-                        <a href="#" class="ui-button know-more">
+                        <a href="<?php the_permalink();?>" class="ui-button know-more">
                             <span class="text">Saiba mais</span>
                             <span class="icon"><i class="fa fa-plus"></i></span>
                         </a>
                     </div>
-
-                    <div class="treatment">
-                        <figure>
-                            <img src="<?php echo get_template_directory_uri();?>/assets/img/botox.jpg" alt="Botox">
-                        </figure>
-                        <div class="info">
-                            <h3>Botox</h3>
-                            <p>Consectetur qui proident elit ea minim cillum minim anim aliquip Lorem.</p>
-                        </div>
-                        <a href="#" class="ui-button know-more">
-                            <span class="text">Saiba mais</span>
-                            <span class="icon"><i class="fa fa-plus"></i></span>
-                        </a>
-                    </div>
-
-                    <div class="treatment">
-                        <figure>
-                            <img src="<?php echo get_template_directory_uri();?>/assets/img/botox.jpg" alt="Botox">
-                        </figure>
-                        <div class="info">
-                            <h3>Botox</h3>
-                            <p>Consectetur qui proident elit ea minim cillum minim anim aliquip Lorem.</p>
-                        </div>
-                        <a href="#" class="ui-button know-more">
-                            <span class="text">Saiba mais</span>
-                            <span class="icon"><i class="fa fa-plus"></i></span>
-                        </a>
-                    </div>
+                <?php endwhile;?>
                 </div>
 
                 <div class="prev"><span class="fa fa-angle-left"></span></div>
@@ -77,39 +59,21 @@
             <div class="grid-blog-home">
                 <div class="left">
                     <h2>A Beauty Lounge Estética</h2>
-                    <p>Sint sunt dolore est in anim cillum deserunt laboris et adipisicing. Ipsum sit do cillum consequat id voluptate ex tempor occaecat eiusmod excepteur duis minim qui. Non ipsum cillum nisi incididunt in culpa aute consequat mollit officia sunt fugiat elit. Reprehenderit anim irure aute ullamco elit.</p>
-                    <p>Ea exercitation magna fugiat ipsum. Esse exercitation et eu voluptate sit adipisicing duis sint. Amet nulla esse qui dolor laboris tempor deserunt in magna esse duis culpa. Enim veniam laboris nostrud ea aute velit. In irure nisi cillum non aliqua exercitation duis exercitation ex labore nisi et. Culpa culpa dolore et exercitation eu dolore.</p>
+                    <?php echo get_field('quem_somos', 26);?>
                 </div>
                 <div class="right">
                     <h2>Últimas do blog</h2>
-                    <a href="#" class="post">
+                    <?php while($posts->have_posts()): $posts->the_post(); $cat = get_the_category();?>
+                    <a href="<?php the_permalink();?>" class="post">
                         <figure class="thumbnail">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/img/botox.jpg" alt="Post Title">
+                            <img src="<?php echo get_the_post_thumbnail_url();?>" alt="<?php echo get_the_title();?>">
                         </figure>
                         <div class="info">
-                            <span class="category">Categoria</span>
-                            <h3>Nome do notícia com até 3 linhas de texto lorem on ipsum dolor sit amet</h3>
+                            <span class="category"><?php echo $cat[0]->name;?></span>
+                            <?php the_title('<h3>','</h3>');?>
                         </div>
                     </a>
-    
-                    <a href="#" class="post">
-                        <figure class="thumbnail">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/img/botox.jpg" alt="Post Title">
-                        </figure>
-                        <div class="info">
-                            <span class="category">Categoria</span>
-                            <h3>Nome do notícia com até 3 linhas de texto lorem on ipsum dolor sit amet</h3>
-                        </div>
-                    </a>
-                    <a href="#" class="post">
-                        <figure class="thumbnail">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/img/botox.jpg" alt="Post Title">
-                        </figure>
-                        <div class="info">
-                            <span class="category">Categoria</span>
-                            <h3>Nome do notícia com até 3 linhas de texto lorem on ipsum dolor sit amet</h3>
-                        </div>
-                    </a>
+                    <?php endwhile;?>
                 </div>
             </div>
         </div>

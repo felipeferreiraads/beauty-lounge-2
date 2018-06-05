@@ -3087,7 +3087,7 @@ body.swal2-iosfix {
 .title-blog {
   width: 100%;
   background-image: linear-gradient(to right, #873c8f, #c83d8c, #ce5198);
-  padding: 50px 20px;
+  padding: 30px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -3137,6 +3137,17 @@ body.swal2-iosfix {
 }
 .title-blog .share a:not(:last-child) {
   margin-right: 5px;
+}
+.title-blog .buy {
+  display: inline-block;
+  height: 3.5rem;
+  border-radius: 5px;
+  background: #a42e71;
+  padding: 0 20px;
+  line-height: 3.5rem;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: bold;
 }
 .card-article {
   border: 1px solid #ccc;
@@ -3913,6 +3924,10 @@ header .grid-header .info input {
   background: #c83d8c;
   color: #fff;
 }
+.grid-treatments-internal .filter button.filter-category.active {
+  background: #c83d8c;
+  color: #fff;
+}
 .grid-treatments-internal .treatments-internal {
   width: 100%;
   overflow: visible !important;
@@ -3955,6 +3970,9 @@ header .grid-header .info input {
 .ui-button:hover {
   width: 12rem;
 }
+.ui-button:hover > .text {
+  display: inline-block;
+}
 .ui-button .text {
   display: none;
   font-size: 1.2rem;
@@ -3962,6 +3980,8 @@ header .grid-header .info input {
   text-transform: uppercase;
   font-weight: bold;
   padding-left: 1rem;
+  animation-delay: 0.5s;
+  animation: fadein 1s;
 }
 .ui-button .icon {
   width: 3.2em;
@@ -3973,6 +3993,38 @@ header .grid-header .info input {
 }
 .ui-button .icon img {
   width: 0.9rem;
+}
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .ui-control + .ui-control {
   margin-top: 20px;

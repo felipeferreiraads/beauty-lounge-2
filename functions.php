@@ -53,3 +53,25 @@ function post_treatments() {
   register_post_type('tratamentos', $args);
   flush_rewrite_rules();
 }
+
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'page_title'  => 'Opções',
+        'menu_title'  => 'Opções',
+        'menu_slug'   => 'options',
+        'capability'  => 'edit_posts',
+        'redirect'    => true
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title'  => 'Banners',
+        'menu_title'  => 'Banners',
+        'parent_slug' => 'options',
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title'  => 'Endereços',
+        'menu_title'  => 'Endereços',
+        'parent_slug' => 'options',
+    ));
+}

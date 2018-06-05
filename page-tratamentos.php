@@ -14,13 +14,13 @@ $posts = new WP_Query(['post_type' => 'tratamentos']);
                     <form class="search-form">
                         <input type="text" placeholder="Pesquisar" class="shuffle-search">
                     </form>
-                    <button class="filter-category" data-group="facial">Tratamentos faciais</button>
-                    <button class="filter-category" data-group="corporal">Tratamentos corporais</button>
+                    <button class="filter-category" data-group="tratamentos-faciais">Tratamentos faciais</button>
+                    <button class="filter-category" data-group="tratamentos-corporais">Tratamentos corporais</button>
                 </div>
 
                 <div class="treatments-internal" id="grid-treatments">
-                <?php while($posts->have_posts()): $posts->the_post(); $cat = get_the_category(); $filter = strtolower(str_replace(' ', '-',$cat[0]->name));?>
-                    <div class="treatment" data-groups='<?php echo json_encode([$filter]);?>' data-title="<?php echo get_the_title();?>">
+                <?php while($posts->have_posts()): $posts->the_post(); $cat = get_the_category();;?>
+                    <div class="treatment" data-groups='<?php echo json_encode([$cat[0]->slug]);?>' data-title="<?php echo get_the_title();?>">
                         <figure>
                             <img src="<?php echo get_the_post_thumbnail_url();?>" alt="<?php echo get_the_title();?>">
                         </figure>

@@ -23,7 +23,7 @@ class GridShuffle {
 
     handleSearchKeyup(event) {
         var searchText = event.target.value.toLowerCase()
-
+        this.removeActiveFilter()
         this.shuffle.filter(function (element, shuffle) {
             var titleText = element.getAttribute('data-title').toLowerCase().trim()
             return titleText.indexOf(searchText) !== -1
@@ -35,8 +35,17 @@ class GridShuffle {
         var btnGroup = btn.getAttribute('data-group')
         this.activeFilters = []
         this.activeFilters.push(btnGroup)
-        btn.classList.toggle('active')
+        this.removeActiveFilter()
+        btn.classList.add('active')
         this.shuffle.filter(this.activeFilters)
+    }
+
+    removeActiveFilter() {
+        var filters = document.getElementsByClassName('filter-category')
+        filters = Array.from(filters)
+        filters.forEach(function (filter) {
+            filter.classList.remove('active')
+        }, this)
     }
 }
 

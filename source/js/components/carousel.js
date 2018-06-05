@@ -25,5 +25,6 @@ $('.about .carousel').owlCarousel({
 })
 
 $('.banner .carousel, .banner .carousel-mobile').owlCarousel({
-    items: 1
+    items: 1,
+    autoplay: true
 })

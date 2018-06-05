@@ -1,3 +1,9 @@
+@keyframes fadein
+    from
+        opacity 0
+    to
+        opacity 1
+
 .ui-button
     width: 3.2rem
     height 3.2rem
@@ -12,19 +18,23 @@
     transition: width .2s ease-in-out
     &:hover
         width: 12rem
-    & .text
-        display: none
+        > .text
+            display inline-block
+    .text
+        display none
         font-size: 1.2rem
         color: $color.white
         text-transform: uppercase
         font-weight: bold
         padding-left: 1rem
-    & .icon
+        animation-delay: .5s
+        animation: fadein 1s
+    .icon
         width: 3.2em
         height: 3.2rem
         display: flex
         justify-content: center
         align-items: center
         color: $color.white
-        & img 
+        & img
             width: .9rem
