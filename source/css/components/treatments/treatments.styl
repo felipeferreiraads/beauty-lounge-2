@@ -1,0 +1,55 @@
+.grid-treatments-internal
+    display flex
+    flex-direction column
+    width 90%
+    margin 0 auto
+    padding 5rem 0 10rem
+    .filter
+        display flex
+        justify-content: center
+        padding-bottom 1rem
+        border-bottom 1px solid #e6e6e6
+        +below(62em)
+            > *
+                width auto !important
+                flex-grow 1
+        > *
+            margin-left 2rem
+        form.search-form
+            width 30rem
+            +below(48em)
+                margin 0 !important
+            input[type=text]
+                width 100%
+                height 35px
+                border: 1px solid $color.primary
+                border-radius 15px
+                color: $color.primary
+                font-size 16px
+                padding 0 1rem
+        a.category
+            width: 30rem
+            height 3.5rem
+            border: 1px solid $color.primary
+            display inline-block
+            border-radius 15px
+            line-height 3.5rem
+            text-align center
+            font-size 1.8rem
+            font-weight bold
+            color: $color.primary
+            transition: .2s;
+            +below(48em)
+                display none
+            &:hover
+                background: $color.primary
+                color: $color.white
+
+    .treatments-internal
+        display flex
+        flex-wrap: wrap
+        justify-content: space-between
+        +below(62em)
+            justify-content: center
+        .treatment
+            margin-top 5rem

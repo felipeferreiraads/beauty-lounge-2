@@ -1,0 +1,85 @@
+footer 
+    width 100%
+    padding 3rem 0 0
+    +below(48em)
+        padding 3rem 2rem 0
+    .grid-footer
+        display flex
+        justify-content: space-between
+        flex-wrap: wrap
+        width 64rem
+        max-width 100%
+        margin 0 auto
+    .top
+        width 100%
+        display flex
+        justify-content: space-between
+        +below(48em)
+            flex-direction column
+            padding-bottom 3rem
+        
+    .menu-footer
+        display flex
+        justify-content: space-between
+        flex-basis 40%
+        +below(48em)
+            justify-content: flex-start
+        ul
+            list-style-type none
+            padding: 0
+            +below(48em)
+                &:first-child
+                    margin-right 5rem
+        li
+            margin-bottom 2rem
+        a 
+            font-size: 1.6rem
+            color: $color.primary
+            font-weight: bold
+    .info
+        display flex
+        flex-direction: column
+        margin-left 10%
+        +below(48em)
+            margin 0
+        address 
+            font: 1.6rem/3rem 'Noto Sans';
+            color #555
+            text-align right
+            +below(48em)
+                text-align left
+        .social
+            height: 4rem
+            display: flex
+            justify-content: flex-end
+            margin-top: 1.2rem
+            +below(48em)
+                justify-content: flex-start
+            & a
+                width: 3rem
+                height: 3rem
+                line-height: 3rem
+                border-radius 4px
+                text-align: center
+                display: inline-block
+                font-size: 1.6rem
+                color: $color.white
+                background: $color.primary
+                transition: .3s
+                margin-left 1rem
+                +below(48em)
+                    margin 0 1rem 0 0
+                &:hover
+                    background: $color.primaryhover
+    .bottom
+        width 100%
+        height 7rem
+        border-top 1px solid #e6e6e6
+        display: flex
+        align-items: center
+        justify-content: space-between
+        p
+            font-size 1.4rem
+            color: $color.text
+        img 
+            width 20px

@@ -1,0 +1,29 @@
+.sidebar
+    flex-basis 26%
+    +below(62em)
+        display none
+    h2
+        font-size: 2rem
+        color: $color.primary
+        &::after
+            display block
+            content: ''
+            margin-top: 1rem
+            width 3rem
+            height 3px
+            background: $color.secundary
+    .group
+        margin-bottom 3rem
+    ul
+        list-style-type none
+        padding 0
+        li
+            margin-bottom 1rem
+        a
+            font-size 1.6rem
+            color: $color.text
+            font-family: $font-family.secondary
+            line-height 1.7
+            transition .3s
+            &:hover
+                color: $color.primary

@@ -1,0 +1,51 @@
+.newsletter
+    background-image: linear-gradient(to right, $color.secundary, #c83d8c, #ce5198)
+    .grid
+        display flex
+        align-items: center
+        height 15rem
+        +below(40em)
+            height auto
+            padding 2rem 0
+    .left
+        width 50%
+        display flex
+        justify-content: flex-end
+        padding-right 5rem
+        border-right: 1px solid $color.white
+        +below(52em)
+            display none
+        img
+            height: 10rem
+    .right
+        padding-left 5rem
+        display flex
+        flex-direction column
+        +below(40em)
+           padding 0 2rem
+        h2
+            font-size 1.6rem
+            color: $color.white
+            margin-bottom 15px
+            &:first-line
+                font-size: 2.4rem
+        input
+            width 25rem
+            height 3.5rem
+            border-radius 5px
+            border none
+            padding 0 10px
+            font-size 1.6rem
+            margin-right 1rem
+            +below(30em)
+                width 16rem
+        button
+            width 10rem
+            height 3.5rem
+            border none
+            border-radius 5px
+            background: $color.primaryhover
+            color: $color.white
+            font-size 1.6rem
+            font-weight bold
+            cursor pointer
