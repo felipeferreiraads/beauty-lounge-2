@@ -6,13 +6,7 @@ global $post
 
     <section class="title-blog">
         <span class="category"><?php echo $cat[0]->name;?></span>
-        <h1>Tratamento</h1>
-        <div class="share">
-            <span class="text">Compartilhe</span>
-            <a href="#"><span class="fa fa-facebook"></span></a>
-            <a href="#"><span class="fa fa-twitter"></span></a>
-            <a href="#"><span class="fa fa-whatsapp"></span></a>
-        </div>
+        <?php the_title('<h1>','</h1>');?>
     </section>
 
     <section class="single">

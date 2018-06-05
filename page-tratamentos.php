@@ -10,32 +10,30 @@ $posts = new WP_Query(['post_type' => 'tratamentos']);
     <section class="about">
         <div class="container">
             <div class="grid-treatments-internal">
-                <div class="filter">
+                <div class="filter filter-shuffle">
                     <form class="search-form">
-                        <input type="text" placeholder="Pesquisar">
+                        <input type="text" placeholder="Pesquisar" class="shuffle-search">
                     </form>
-                    <a href="#" class="category">Tratamentos faciais</a>
-                    <a href="#" class="category">Tratamentos corporais</a>
+                    <button class="filter-category" data-group="facial">Tratamentos faciais</button>
+                    <button class="filter-category" data-group="corporal">Tratamentos corporais</button>
                 </div>
 
-                <div class="treatments-internal">
-                <?php while($posts->have_posts()): $posts->the_post(); $cata = get_the_category();?>
-                    <div class="grid-brick" data-group=['<?php echo strtolower(str_replace(' ', '-',$cat[0]->name));?>']>
-                        <div class="treatment">
-                            <figure>
-                                <img src="<?php echo get_the_post_thumbnail_url();?>" alt="<?php echo get_the_title();?>">
-                            </figure>
-                            <div class="info">
-                                <?php the_title('<h3>', '</h3>');?>
-                                <?php the_excerpt();?>
-                            </div>
-                            <a href="<?php the_permalink();?>" class="ui-button know-more">
-                                <span class="text">Saiba mais</span>
-                                <span class="icon">
-                                    <i class="fa fa-plus"></i>
-                                </span>
-                            </a>
+                <div class="treatments-internal" id="grid-treatments">
+                <?php while($posts->have_posts()): $posts->the_post(); $cat = get_the_category(); $filter = strtolower(str_replace(' ', '-',$cat[0]->name));?>
+                    <div class="treatment" data-groups='<?php echo json_encode([$filter]);?>' data-title="<?php echo get_the_title();?>">
+                        <figure>
+                            <img src="<?php echo get_the_post_thumbnail_url();?>" alt="<?php echo get_the_title();?>">
+                        </figure>
+                        <div class="info">
+                            <?php the_title('<h3>', '</h3>');?>
+                            <?php the_excerpt();?>
                         </div>
+                        <a href="<?php the_permalink();?>" class="ui-button know-more">
+                            <span class="text">Saiba mais</span>
+                            <span class="icon">
+                                <i class="fa fa-plus"></i>
+                            </span>
+                        </a>
                     </div>
                 <?php endwhile;?>
                 </div>

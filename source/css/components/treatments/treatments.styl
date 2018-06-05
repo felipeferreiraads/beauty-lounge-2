@@ -27,7 +27,7 @@
                 color: $color.primary
                 font-size 16px
                 padding 0 1rem
-        a.category
+        button.filter-category
             width: 30rem
             height 3.5rem
             border: 1px solid $color.primary
@@ -39,6 +39,7 @@
             font-weight bold
             color: $color.primary
             transition: .2s;
+            background: transparent
             +below(48em)
                 display none
             &:hover
@@ -46,10 +47,18 @@
                 color: $color.white
 
     .treatments-internal
-        display flex
-        flex-wrap: wrap
-        justify-content: space-between
-        +below(62em)
-            justify-content: center
+        width: 100%
+        overflow: visible !important
         .treatment
-            margin-top 5rem
+            width 45%
+            margin 4rem 2.5% 0
+            +below(40em)
+                width 100%
+                margin 4rem 0 0
+        .grid-brick
+            display flex
+            justify-content: center
+        .sizer
+            width: 558px
+            +below(40em)
+                width 100%

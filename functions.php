@@ -20,7 +20,7 @@ function show_hidden_meta_boxes($hidden, $screen) {
 add_action('init', 'post_treatments', 0);
 function post_treatments() {
   $labels = [
-    'name' => _x('z', 'Tratamentos'),
+    'name' => _x('Tratamentos', 'Tratamentos'),
     'singular_name' => _x('Tratamento', 'Tratamento'),
     'add_new' => _x('Adicionar Tratamento', 'Novo tratamento'),
     'add_new_item' => __('Novo Tratamento'),

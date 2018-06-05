@@ -1,64 +1,45 @@
 import Shuffle from 'shufflejs'
 
 class GridShuffle {
-	constructor(element) {
-		this.element = element
-		this.activeFilters = []
-		this.shuffle = new Shuffle(element, {
-			itemSelector: '.grid-brick',
-			sizer: '.sizer',
-		})
+    constructor(element) {
+        this.element = element
+        this.activeFilters = []
+        this.shuffle = new Shuffle(element, {
+            itemSelector: '.treatment',
+            sizer: '.sizer',
+        })
 
-		this.addEventListeners()
-	}
+        this.addEventListeners()
+    }
 
-	addEventListeners() {
-		document.querySelector('.sort-select').addEventListener('change', this.handleSortChange.bind(this))
+    addEventListeners() {
+        document.querySelector('.shuffle-search').addEventListener('keyup', this.handleSearchKeyup.bind(this))
+        var filter = document.getElementsByClassName('filter-category')
+        filter = Array.from(filter)
+        filter.forEach(function (checkbox) {
+            checkbox.addEventListener('click', this.handleFilterChange.bind(this), false)
+        }, this)
+    }
 
-		var filterCheck = document.getElementsByClassName('checkbox')
-		filterCheck = Array.from(filterCheck)
-		filterCheck.forEach(function(checkbox) {
-			checkbox.addEventListener('click', this.handleFilterChange.bind(this), false)
-		}, this)
-	}
+    handleSearchKeyup(event) {
+        var searchText = event.target.value.toLowerCase()
 
-	handleSortChange(event) {
-		var value = event.target.value
+        this.shuffle.filter(function (element, shuffle) {
+            var titleText = element.getAttribute('data-title').toLowerCase().trim()
+            return titleText.indexOf(searchText) !== -1
+        })
+    }
 
-		function sortByDate(element) {
-			console.log(element.getAttribute('data-course'))
-			return element.getAttribute('data-course')
-		}
-
-		var options
-		if (value === 'reverse') {
-			options = {
-				reverse: true,
-				by: sortByDate
-			}
-		}
-		else {
-			options = {}
-		}
-		this.shuffle.sort(options)
-	}
-
-	handleFilterChange(event) {
-		var btn = event.currentTarget
-		var isActive = btn.classList.contains('active')
-		var btnGroup = btn.getAttribute('data-group')
-		if (isActive) {
-			this.activeFilters.splice(this.activeFilters.indexOf(btnGroup))
-		} else {
-			this.activeFilters.push(btnGroup)
-		}
-
-		btn.classList.toggle('active')
-		console.log(this.activeFilters)
-		this.shuffle.filter(this.activeFilters)
-	}
+    handleFilterChange(event) {
+        var btn = event.currentTarget
+        var btnGroup = btn.getAttribute('data-group')
+        this.activeFilters = []
+        this.activeFilters.push(btnGroup)
+        btn.classList.toggle('active')
+        this.shuffle.filter(this.activeFilters)
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-	window.grid_shuffle = new GridShuffle(document.getElementById('grid-courses'))
+    window.grid_shuffle = new GridShuffle(document.getElementById('grid-treatments'))
 })
