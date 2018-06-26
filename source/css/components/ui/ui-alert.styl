@@ -1,0 +1,102 @@
+.ui-alert
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  padding: 10px 25px
+  cursor: pointer
+  background-color: transparent
+  border: none
+  outline: none
+  color: #fff
+  border-radius: 3px
+  text-align: center
+  font-size: 14px
+
+.ui-alert:active:not([disabled])
+  box-shadow: inset 0 3px 5px rgba(0,0,0,.125)
+
+.ui-alert:not(.-circular) > {$icon-selector}
+  display: inline-block
+  vertical-align: middle
+  margin-right: $spacing.x-small
+  position: relative
+  top: -1px
+  line-height: 0
+
+// Disabled
+// --------
+
+.ui-alert[disabled]
+  cursor: not-allowed
+  opacity: 0.7
+
+// Themes
+// ------
+
+for key, val in $color
+  .ui-alert.-{key}
+    background-color: val
+    &:hover:not([disabled]),
+    &:active:not([disabled])
+      background-color: darken(val, 15%)
+
+// Block Modifier
+// --------------
+
+.ui-alert.-block
+  display: block
+  width: 100%
+
+.ui-alert.-block--sm
+  +below($bp.sm)
+    display: block
+    width: 100%
+
+// Sizes
+// -----
+
+.ui-alert:not(.-circular).-small
+  padding: 5px 15px
+  font-size: $font-size.small
+
+.ui-alert:not(.-circular).-large
+  padding: 15px 25px
+
+.ui-alert.-circular.-small
+  width: 30px
+  height: 30px
+  font-size: $font-size.x-small
+
+.ui-alert.-circular.-large
+  width: 60px
+  height: 60px
+  font-size: $font-size.x-large
+
+// Circular Buttons
+// ----------------
+
+.ui-alert.-circular
+  padding: 0
+  width: 38px
+  height: 38px
+  border-radius: 100%
+  line-height: 0
+  position: relative
+
+  > {$icon-selector}
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+.ui-control.-group .ui-alert
+  margin-left: 20px
+
+.main-newsletter-wrap-item.-last .ui-control.-group .ui-alert
+  transition: all 0.5s
+  -webkit-transition: all 0.5s
+  -moz-transition: all 0.5s
+  +below($bp.xs)
+    margin: 10px 0 0 0
+    justify-content: flex-end
+    order: 1

@@ -27,7 +27,8 @@
                 </div>
             </div>
 
-            <form class="form-contact">
+            <form class="form-contact js-form" action="<?php echo admin_url('admin-ajax.php') ?>" method="post" data-form-ajax="true">
+                <input type="hidden" name="action" value="form_contact">
                 <label>Nome</label>
                 <input type="text" name="nome" required>
                 <label>E-mail</label>

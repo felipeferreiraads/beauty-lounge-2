@@ -1,7 +1,7 @@
 <?php 
 get_header();
 $cat = get_the_category();
-global $post
+the_post();
 ?>
 
     <section class="title-blog">
@@ -17,7 +17,7 @@ global $post
 
     <section class="single">
         <div class="box-text">
-            <?php echo apply_filters( 'the_content', $post->post_content );?>
+            <?php the_content();?>
         </div>
     </section>
 

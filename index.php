@@ -4,6 +4,7 @@ $banners_desktop = get_field('banners_desktop', 'options');
 $banners_mobile = get_field('banners_mobile', 'options');
 $treatments = new WP_Query(['post_type' => 'tratamentos', 'category_name' => 'destaques']);
 $posts = new WP_Query(['post_type' => 'post', 'posts_per_page' => 3]);
+$quem_somos = get_page_by_path('quem-somos');
 ?>
 
     <section class="banner">
@@ -59,7 +60,7 @@ $posts = new WP_Query(['post_type' => 'post', 'posts_per_page' => 3]);
             <div class="grid-blog-home">
                 <div class="left">
                     <h2>A Beauty Lounge Estética</h2>
-                    <?php echo get_field('quem_somos', 26);?>
+                    <?php echo apply_filters('the_content', get_field('quem_somos', $quem_somos->ID));?>
                 </div>
                 <div class="right">
                     <h2>Últimas do blog</h2>
