@@ -4,8 +4,7 @@
   "scripts": {
     "js": "webpack",
     "js:watch": "webpack --watch",
-    "js:prod": "npm run js -- --minify",
-    "js:lint": "standard \"source/js/**/*.js\" --verbose | snazzy",
+    "js:prod": "webpack",
     "css": "stylus -m source/css/index.styl --include-css -I node_modules -o assets/css/style.min.css -u rupture -u poststylus --with \"['lost']\"",
     "css:watch": "stylus -w source/css/index.styl --include-css -I node_modules -o assets/css/style.min.css -u rupture -u poststylus --with \"['lost']\"",
     "css:autoprefixer": "npm run css -- -u autoprefixer-stylus --with \"{browsers: ['> 1%']}\"",
@@ -18,7 +17,6 @@
     "serve": "parallelshell \"npm run php\" \"npm run browsersync\"",
     "watch": "parallelshell \"npm run js:watch\" \"npm-watch\"",
     "dev": "parallelshell \"npm run serve\" \"npm run watch\"",
-    "prebuild": "npm run js:lint",
     "build": "parallelshell \"npm run js:prod\" \"npm run css:prod\" \"npm run img:prod\" && echo \"MANDA BALA NO DEPLOY!\""
   },
   "watch": {

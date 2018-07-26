@@ -16,7 +16,7 @@ function form_contact () {
 
   // Template de envio
   if (!count($errors) > 0) {
-    $emailTo = get_field('email_formulario');
+    $emailTo = get_field('email_formulario', 'options');
     $body = "E-mail de contato do site:\n\n";
     if ($nome) {
       $body .= "Nome: $nome\n";

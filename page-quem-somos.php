@@ -1,7 +1,7 @@
-<?php 
+<?php
 get_header();
 the_post();
-$equipe = new WP_Query(['post_type' => 'equipe']);Z
+$equipe = new WP_Query(['post_type' => 'equipe', 'orderby' => 'title', 'order' => 'ASC']);
 ?>
 
     <section class="title-internal">
@@ -18,7 +18,8 @@ $equipe = new WP_Query(['post_type' => 'equipe']);Z
             <?php while($equipe->have_posts()): $equipe->the_post();?>
                 <div class="item">
                     <figure>
-                        <img src="<?php echo get_the_post_thumbnail_url('full');?>" alt="<?php echo get_the_title();?>">
+                        <img src="<?php the_field('primeira');?>" alt="<?php echo get_the_title();?>" class="first">
+                        <img src="<?php the_field('segunda');?>" alt="<?php echo get_the_title();?>" class="second">
                     </figure>
                     <?php the_title('<h3>','</h3>');?>
                     <span><?php the_field('funcao');?></span>
@@ -28,21 +29,6 @@ $equipe = new WP_Query(['post_type' => 'equipe']);Z
         </section>
     </section>
 
-    <section class="newsletter">
-        <div class="grid">
-            <div class="left">
-                <img src="<?php echo get_template_directory_uri();?>/assets/img/logo-news.png" alt="Assine nossa newsletter" />
-            </div>
-            <div class="right">
-                <h2>Assine nossa newsletter<br />
-                    e fique por dentro das nossas promoções e novidades!                    
-                </h2>
-                <form>
-                    <input type="email" name="email" placeholder="Seu e-mail">
-                    <button>Enviar</button>
-                </form>
-            </div>
-        </div>
-    </section>
+    <?php get_template_part( 'inc/newsletter' ); ?>
 
 <?php get_footer(); ?>
