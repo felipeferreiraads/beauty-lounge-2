@@ -2,7 +2,7 @@
 get_header();
 $banners_desktop = get_field('banners_desktop', 'options');
 $banners_mobile = get_field('banners_mobile', 'options');
-$treatments = new WP_Query(['post_type' => 'tratamentos', 'category_name' => 'destaques']);
+$treatments = new WP_Query(['post_type' => 'tratamentos', 'category_name' => 'destaques', 'orderby' => 'title', 'order' => 'ASC']);
 $posts = new WP_Query(['post_type' => 'post', 'posts_per_page' => 3]);
 $quem_somos = get_page_by_path('quem-somos');
 ?>

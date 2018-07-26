@@ -3525,7 +3525,7 @@ body.swal2-iosfix {
   padding: 2rem 2rem 3rem;
 }
 .treatment .info h3 {
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   color: #c83d8c;
   margin-bottom: 2rem;
 }
@@ -3560,14 +3560,27 @@ body.swal2-iosfix {
   background: #a42e71;
 }
 .all {
-  width: 39rem;
+  width: 42rem;
   max-width: 100%;
-  display: block;
-  font-family: 'Noto Sans' , sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Noto Sans', sans-serif;
   font-size: 1.8rem;
   color: #c83d8c;
   padding: 1rem;
-  margin: 5rem auto 0;
+  margin: 7rem auto 0;
+  font-weight: bold;
+}
+.all span {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  border-radius: 30px;
+  line-height: 30px;
+  background: #c83d8c;
+  color: #fff;
+  text-align: center;
 }
 .newsletter {
   background-image: linear-gradient(to right, #873c8f, #c83d8c, #ce5198);
@@ -3842,7 +3855,8 @@ header .grid-header .info input {
   flex-direction: column;
   align-items: center;
 }
-.box-text p {
+.box-text p,
+.box-text ul {
   font-size: 1.8rem;
   line-height: 2;
   color: #555;
@@ -3850,8 +3864,15 @@ header .grid-header .info input {
   max-width: 70rem;
   margin-top: 2rem;
 }
-.box-text p :not(:last-child) {
+.box-text p :not(:last-child),
+.box-text ul :not(:last-child) {
   margin-top: 2rem;
+}
+.box-text h2 {
+  font-size: 2rem;
+  color: #c83d8c;
+  margin-top: 2rem;
+  text-align: left;
 }
 .title-internal {
   width: 100%;

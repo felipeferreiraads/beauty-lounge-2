@@ -1,6 +1,6 @@
 <?php
 get_header();
-$posts = new WP_Query(['post_type' => 'tratamentos']);
+$posts = new WP_Query(['post_type' => 'tratamentos', 'posts_per_page' => 50, 'orderby' => 'title', 'order' => 'ASC']);
 ?>
 
     <section class="title-internal">
