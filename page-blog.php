@@ -57,21 +57,6 @@ $most_viewed = pvc_get_most_viewed_posts(array('posts_per_page' => 5));
         </div>
     </section>
 
-    <section class="newsletter">
-        <div class="grid">
-            <div class="left">
-                <img src="<?php echo get_template_directory_uri();?>/assets/img/logo-news.png" alt="Assine nossa newsletter" />
-            </div>
-            <div class="right">
-                <h2>Assine nossa newsletter
-                    <br /> e fique por dentro das nossas promoções e novidades!
-                </h2>
-                <form>
-                    <input type="email" name="email" placeholder="Seu e-mail">
-                    <button>Enviar</button>
-                </form>
-            </div>
-        </div>
-    </section>
+    <?php get_template_part( 'inc/newsletter' ); ?>
 
 <?php get_footer(); ?>

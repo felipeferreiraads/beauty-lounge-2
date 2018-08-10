@@ -16,7 +16,7 @@
                 <div class="info">
                     <div class="address">
                         <address>
-                            Rua Ebano Pereira, 44<br>
+                            <?php the_field('endereco', 'options');?><br>
                             Centro - Curitiba/PR
                         </address>
                         <div class="social">
@@ -32,6 +32,11 @@
             </div>
         </div>
     </footer>
+
+    <a href="https://api.whatsapp.com/send?phone=5541991532922" target="_blank" class="whatsapp-fixed">
+        <span class="fa fa-whatsapp"></span>
+        <span class="tooltip">Entre em contato conosco no whatsapp</span>
+    </a>          
 
     <?php wp_footer(); ?>
     <script src="<?php echo get_template_directory_uri();?>/assets/js/bundle.min.js"></script>

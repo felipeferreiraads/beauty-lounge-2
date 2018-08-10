@@ -7,7 +7,6 @@ global $post;
     <section class="title-blog">
         <span class="category"><?php echo $cat[0]->name;?></span>
         <?php the_title('<h1>','</h1>');?>
-        <a href="#" class="buy">Comprar na loja online</a>
     </section>
 
     <section class="single">

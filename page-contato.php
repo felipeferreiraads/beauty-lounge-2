@@ -9,8 +9,8 @@
             <div class="info-contact">
                 <h3>Nosso endereço</h3>
                 <address>
-                    Rua Ebano Pereira, 44
-                    <br> Centro - Curitiba/PR
+                    <?php the_field('endereco', 'options'); ?>
+                    <br>Curitiba/PR
                 </address>
                 <h3>Horário de atendimento</h3>
                 <p>Segunda à Sexta-feira das 9h às 18h</p>
@@ -18,11 +18,11 @@
                 <div class="phones">
                     <div class="phone">
                         <i class="fa fa-phone"></i>
-                        <span>(41) 3029-2922</span>
+                        <span><?php the_field('telefone', 'options');?></span>
                     </div>
                     <div class="phone">
                         <i class="fa fa-whatsapp"></i>
-                        <span>(41) 99153-2922</span>
+                        <span><?php the_field('whatsapp', 'options');?></span>
                     </div>
                 </div>
             </div>
@@ -42,21 +42,6 @@
         </div>
     </section>
 
-    <section class="newsletter">
-        <div class="grid">
-            <div class="left">
-                <img src="<?php echo get_template_directory_uri();?>/assets/img/logo-news.png" alt="Assine nossa newsletter" />
-            </div>
-            <div class="right">
-                <h2>Assine nossa newsletter
-                    <br /> e fique por dentro das nossas promoções e novidades!
-                </h2>
-                <form>
-                    <input type="email" name="email" placeholder="Seu e-mail">
-                    <button>Enviar</button>
-                </form>
-            </div>
-        </div>
-    </section>
+    <?php get_template_part( 'inc/newsletter' ); ?>
 
 <?php get_footer(); ?>
