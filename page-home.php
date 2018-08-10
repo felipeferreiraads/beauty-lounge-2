@@ -4,6 +4,7 @@ $banners_desktop = get_field('banners_desktop', 'options');
 $banners_mobile = get_field('banners_mobile', 'options');
 $treatments = new WP_Query(['post_type' => 'tratamentos', 'category_name' => 'destaques', 'orderby' => 'title', 'order' => 'ASC']);
 $posts = new WP_Query(['post_type' => 'post', 'posts_per_page' => 3]);
+$testmonials = new WP_Query(['post_type' => 'depoimentos']);
 $quem_somos = get_page_by_path('quem-somos');
 ?>
 
@@ -24,7 +25,7 @@ $quem_somos = get_page_by_path('quem-somos');
         <div class="container">
             <div class="grid-treatments">
                 <h2 class="ui-title">Conheça nossos tratamentos</h2>
-                <p class="subtitle">Ea do cillum cillum occaecat est dolor aute ea amet occaecat magna cupidatat aute ullamco.</p>
+                <p class="subtitle"><?php the_field('subtitulo_tratamentos');?></p>
                 <div class="carousel">
                 <?php while($treatments->have_posts()): $treatments->the_post();?>
                     <div class="treatment">
@@ -81,10 +82,25 @@ $quem_somos = get_page_by_path('quem-somos');
     </section>
 
     <section class="testmonials">
-        <div class="container">
-            <h2 class="ui-title">Conheça nossos tratamentos</h2>
-            <p class="subtitle">Ea do cillum cillum occaecat est dolor aute ea amet occaecat magna cupidatat aute ullamco.</p>
+        <h2 class="ui-title">Depoimentos</h2>
+        <p class="subtitle">Veja depoimentos de nossos clientes satisfeitos</p>
+        <div class="quote">
+            <span class="fa fa-quote-left"></span>
+            <div class="carousel">
+            <?php while($testmonials->have_posts()): $testmonials->the_post();?>
+                <div class="testmonial">
+                <figure>
+                    <img src="<?php echo get_the_post_thumbnail_url();?>" alt="<?php echo get_the_title();?>">
+                </figure>
+                <?php
+                    the_content();
+                    the_title('<h3>- ', '</h3>');
+                ?>
+                </div>
+            <?php endwhile;?>
+            </div>
         </div>
     </section>
+    
 
 <?php get_footer(); ?>

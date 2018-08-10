@@ -56,38 +56,72 @@ function custom_post_types() {
   flush_rewrite_rules();
 
     $labels = [
-    'name' => _x('Funcionários', 'Funcionários'),
-    'singular_name' => _x('Funcionário', 'Funcionário'),
-    'add_new' => _x('Adicionar Funcionário', 'Novo funcionário'),
-    'add_new_item' => __('Novo Funcionário'),
-    'edit_item' => __('Editar Funcionário'),
-    'new_item' => __('Novo Funcionário'),
-    'view_item' => __('Ver Funcionário'),
-    'search_items' => __('Procurar Funcionários'),
-    'not_found' =>  __('Nenhum registro encontrado'),
-    'not_found_in_trash' => __('Nenhum registro encontrado na lixeira'),
-    'parent_item_colon' => '',
-    'menu_name' => 'Equipe'
-  ];
+        'name' => _x('Funcionários', 'Funcionários'),
+        'singular_name' => _x('Funcionário', 'Funcionário'),
+        'add_new' => _x('Adicionar Funcionário', 'Novo funcionário'),
+        'add_new_item' => __('Novo Funcionário'),
+        'edit_item' => __('Editar Funcionário'),
+        'new_item' => __('Novo Funcionário'),
+        'view_item' => __('Ver Funcionário'),
+        'search_items' => __('Procurar Funcionários'),
+        'not_found' =>  __('Nenhum registro encontrado'),
+        'not_found_in_trash' => __('Nenhum registro encontrado na lixeira'),
+        'parent_item_colon' => '',
+        'menu_name' => 'Equipe'
+    ];
 
-  $args = [
-    'labels' => $labels,
-    'public' => true,
-    'public_queryable' => true,
-    'show_ui' => true,
-    'query_var' => true,
-    'rewrite' => true,
-    'capability_type' => 'post',
-    'has_archive' => false,
-    'hierarchical' => true,
-    'menu_position' => null,
-    'menu_icon' => 'dashicons-admin-users',
-    'taxonomies' => ['category'],
-    'supports' => ['title', 'thumbnail', 'excerpt', 'category', 'editor']
-  ];
+    $args = [
+        'labels' => $labels,
+        'public' => true,
+        'public_queryable' => true,
+        'show_ui' => true,
+        'query_var' => true,
+        'rewrite' => true,
+        'capability_type' => 'post',
+        'has_archive' => false,
+        'hierarchical' => true,
+        'menu_position' => null,
+        'menu_icon' => 'dashicons-admin-users',
+        'taxonomies' => ['category'],
+        'supports' => ['title', 'thumbnail', 'excerpt', 'category', 'editor']
+    ];
 
   register_post_type('equipe', $args);
   flush_rewrite_rules();
+
+    $labels = [
+        'name' => _x('Depoimentos', 'Depoimentos'),
+        'singular_name' => _x('Depoimento', 'Depoimento'),
+        'add_new' => _x('Adicionar Depoimento', 'Novo Depoimento'),
+        'add_new_item' => __('Novo Depoimento'),
+        'edit_item' => __('Editar Depoimento'),
+        'new_item' => __('Novo Depoimento'),
+        'view_item' => __('Ver Depoimento'),
+        'search_items' => __('Procurar Depoimentos'),
+        'not_found' =>  __('Nenhum registro encontrado'),
+        'not_found_in_trash' => __('Nenhum registro encontrado na lixeira'),
+        'parent_item_colon' => '',
+        'menu_name' => 'Depoimentos'
+    ];
+
+    $args = [
+        'labels' => $labels,
+        'public' => true,
+        'public_queryable' => true,
+        'show_ui' => true,
+        'query_var' => true,
+        'rewrite' => true,
+        'capability_type' => 'post',
+        'has_archive' => false,
+        'hierarchical' => true,
+        'menu_position' => null,
+        'menu_icon' => 'dashicons-admin-users',
+        'taxonomies' => ['category'],
+        'supports' => ['title', 'thumbnail', 'excerpt', 'category', 'editor']
+    ];
+
+    register_post_type('depoimentos', $args);
+    flush_rewrite_rules();
 }
 
 if( function_exists('acf_add_options_page') ) {

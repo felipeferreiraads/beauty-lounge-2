@@ -28,3 +28,7 @@ $('.banner .carousel, .banner .carousel-mobile').owlCarousel({
     items: 1,
     autoplay: true
 })
+
+$('.testmonials .carousel').owlCarousel({
+    items: 1
+})
