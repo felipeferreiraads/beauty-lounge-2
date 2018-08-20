@@ -1,7 +1,9 @@
 <?php 
 get_header(); 
 $posts = new WP_Query(['posts_per_page' => 10]);
-$categories = get_categories();
+$categories = get_categories([
+    'exclude' => [1, 2, 3, 5, 6, 8]
+]);
 $most_viewed = pvc_get_most_viewed_posts(array('posts_per_page' => 5));
 ?>
 
@@ -31,7 +33,7 @@ $most_viewed = pvc_get_most_viewed_posts(array('posts_per_page' => 5));
                     <div class="group">
                         <h2>Posts mais lidos</h2>
                         <ul>
-                        <?php foreach($categories as $cat):?>
+                        <?php foreach($most_viewed as $post):?>
                             <li>
                                 <a href="<?php echo the_permalink();?>">
                                     <?php echo get_the_title();?>

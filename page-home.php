@@ -48,7 +48,7 @@ $quem_somos = get_page_by_path('quem-somos');
                 <div class="next"><span class="fa fa-angle-right"></span></div>
             </div>
             <a href="<?php echo site_url( 'tratamentos' );?>" class="all">
-                Conheça todos os nosso tratamentos
+                Conheça todos os nossos tratamentos
                 <span>
                     <i class="fa fa-angle-right"></i>
                 </span>
@@ -83,7 +83,7 @@ $quem_somos = get_page_by_path('quem-somos');
 
     <section class="testmonials">
         <h2 class="ui-title">Depoimentos</h2>
-        <p class="subtitle">Veja depoimentos de nossos clientes satisfeitos</p>
+        <p class="subtitle">Veja depoimentos de nossos clientes</p>
         <div class="quote">
             <span class="fa fa-quote-left"></span>
             <div class="carousel">
@@ -99,6 +99,8 @@ $quem_somos = get_page_by_path('quem-somos');
                 </div>
             <?php endwhile;?>
             </div>
+            <div class="prev"><span class="fa fa-angle-left"></span></div>
+            <div class="next"><span class="fa fa-angle-right"></span></div>
         </div>
     </section>
     

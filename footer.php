@@ -35,7 +35,7 @@
 
     <a href="https://api.whatsapp.com/send?phone=5541991532922" target="_blank" class="whatsapp-fixed">
         <span class="fa fa-whatsapp"></span>
-        <span class="tooltip">Entre em contato conosco no whatsapp</span>
+        <span class="tooltip">Entre em contato conosco pelo WhatsApp</span>
     </a>          
 
     <?php wp_footer(); ?>

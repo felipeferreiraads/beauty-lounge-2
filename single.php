@@ -9,9 +9,9 @@ the_post();
         <?php the_title('<h1>','</h1>');?>
         <div class="share">
             <span class="text">Compartilhe</span>
-            <a href="#"><span class="fa fa-facebook"></span></a>
-            <a href="#"><span class="fa fa-twitter"></span></a>
-            <a href="#"><span class="fa fa-whatsapp"></span></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_the_permalink();?>" class="share"><span class="fa fa-facebook"></span></a>
+            <a href="https://twitter.com/home?status=<?php echo get_the_permalink();?>" class="share"><span class="fa fa-twitter"></span></a>
+            <a href="https://api.whatsapp.com/send?text=<?php echo get_the_permalink();?>" data-action="share/whatsapp/share" target="_blank"><span class="fa fa-whatsapp"></span></a>
         </div>
     </section>
 
