@@ -82,15 +82,14 @@
             <li><a href="<?php echo site_url('/');?>">Home</a></li>
             <li><a href="<?php echo site_url('/quem-somos/');?>">Quem somos</a></li>
             <li><a href="<?php echo site_url('/tratamentos/');?>">Tratamentos</a></li>
-            <li><a href="#">Loja</a></li>
             <li><a href="<?php echo site_url('/blog/');?>">Blog</a></li>
             <li><a href="<?php echo site_url('/contato/');?>">Contato</a></li>
         </ul>
 
         <div class="social-links">
-            <a href="https://www.facebook.com/fluentbee/" target="_blank"><span class="fa fa-facebook"></span></a>
-            <a href="https://www.instagram.com/fluentbee/" target="_blank"><span class="fa fa-instagram"></span></a>
-            <a href="https://www.youtube.com/channel/UCIEdtAMdoNreaQCO8a6XAjQ" target="_blank"><span class="fa fa-youtube-play"></span></a>
+            <a href="https://www.facebook.com/beautyesteticacwb/" target="_blank"><span class="fa fa-facebook"></span></a>
+            <a href="https://www.instagram.com/beautyloungeestetica/" target="_blank"><span class="fa fa-instagram"></span></a>
+            <a href="https://www.youtube.com/channel/UClIhw2lf0qj-mCAe3KOQHEQ" target="_blank"><span class="fa fa-youtube-play"></span></a>
         </div>
     </nav>
 
